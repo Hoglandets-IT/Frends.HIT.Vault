@@ -21,12 +21,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="FrendsTaskMetadata.json" Pack="true" PackagePath="/">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="HashiCorp.Vault" Version="0.3.0" />
     </ItemGroup>
     

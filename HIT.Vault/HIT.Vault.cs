@@ -4,9 +4,9 @@ using Vault.Model;
 
 namespace HIT;
 
-// / <summary>
-// / Main class for Vault
-// / </summary>
+/// <summary>
+/// Main class for Vault
+/// </summary>
 public static class Vault {
 
     private static string VaultAddr() {
