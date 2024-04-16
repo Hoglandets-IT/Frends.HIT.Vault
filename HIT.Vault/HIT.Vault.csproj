@@ -20,8 +20,14 @@
         <RepositoryUrl>https://github.com/Hoglandets-IT/Frends.HIT.Vault</RepositoryUrl>
     </PropertyGroup>
 
+    <!-- <ItemGroup>
+        <ProjectReference Include="..\Hashicorp.Vault\Vault.csproj" />
+    </ItemGroup> -->
+
     <ItemGroup>
-        <PackageReference Include="HashiCorp.Vault" Version="0.3.0" />
+      <PackageReference Include="VaultSharp" Version="1.13.0.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+
     </ItemGroup>
     
 </Project>

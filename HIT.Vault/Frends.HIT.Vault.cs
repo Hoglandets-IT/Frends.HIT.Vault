@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using System.Text.Json;
 
 
-namespace HIT;
+namespace Frends.HIT;
 
 /// <summary>
 /// Main class for Vault
