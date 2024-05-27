@@ -1,0 +1,10 @@
+{
+    "Tasks": [
+      {
+        "TaskMethod": "HIT.Vault.GetSecretFunc"
+      },
+      {
+        "TaskMethod": "HIT.Vault.EnableSecretFunc"
+      }
+    ]
+}

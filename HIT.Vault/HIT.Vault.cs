@@ -1,12 +1,9 @@
-// using Vault;
-// using Vault.Client;
-// using Vault.Model;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods;
 using VaultSharp.V1.AuthMethods.Token;
 using VaultSharp.V1.Commons;
 using Newtonsoft.Json;
-using System.Text.Json;
+using System.ComponentModel;
 
 
 namespace HIT;
@@ -28,7 +25,12 @@ public static class Vault {
         return Environment.GetEnvironmentVariable("VAULT_STORE");
     }
 
-    public static string Secret(string path) {     
+    /// <summary>
+    /// Returns a secret from Hashicorp Vault
+    /// </summary>
+    /// <param name="path">The path to the secret</param>
+    /// <returns>Secret string</returns>
+    public static string Secret(string path) {   
         IAuthMethodInfo authMethod = new TokenAuthMethodInfo(VaultToken());
         var vaultClientSettings = new VaultClientSettings(VaultAddr(), authMethod);
 
@@ -54,38 +56,22 @@ public static class Vault {
         }
 
         return JsonConvert.SerializeObject(rtnData);
-        
+    }
 
+    /// <summary>
+    /// Function to include at the start of a process to enable the usage of the HIT.Vault.Secret function
+    /// </summary>
+    public static void EnableSecretFunc() {
+        return;
+    }
 
-
-
-
-
-        // VaultConfiguration config = new VaultConfiguration(VaultAddr());
-        // VaultClient client = new VaultClient(config);
-        // client.SetToken(VaultToken());
-
-        // VaultResponse<KvV2ReadResponse> resp = client.Secrets.KvV2Read(path, VaultStore());
-
-        // if (resp == null) {
-        //     throw new Exception("Vault secret not found");
-        // }
-
-        // if (resp.Data == null) {
-        //     throw new Exception("Vault secret not found");
-        // }
-
-        // var respData = (Newtonsoft.Json.Linq.JObject)resp.Data.Data;
-        
-        // if (respData.Count == 0) {
-        //     throw new Exception("Vault secret not found");
-        // }
-
-        // if (respData.Count == 1) {
-        //     return respData.First.First.ToString();
-        // }
-
-        // return respData.ToString();
+    /// <summary>
+    /// Returns a function used to retrieve the secret
+    /// </summary>
+    /// <param name="path">The path to the secret</param>
+    /// <returns>function() => string</returns> 
+    public static Func<string> GetSecretFunc(string path) {
+        return () => Secret(path);
     }
 }
 
