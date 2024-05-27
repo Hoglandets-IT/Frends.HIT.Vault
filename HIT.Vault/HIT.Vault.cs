@@ -3,10 +3,8 @@ using VaultSharp.V1.AuthMethods;
 using VaultSharp.V1.AuthMethods.Token;
 using VaultSharp.V1.Commons;
 using Newtonsoft.Json;
-using System.ComponentModel;
 
-
-namespace HIT;
+namespace Frends.HIT;
 
 /// <summary>
 /// Main class for Vault
@@ -59,10 +57,10 @@ public static class Vault {
     }
 
     /// <summary>
-    /// Function to include at the start of a process to enable the usage of the HIT.Vault.Secret function
+    /// Function to include at the start of a process to enable the usage of the Frends.HIT.Vault.Secret function
     /// </summary>
-    public static void EnableSecretFunc() {
-        return;
+    public static string EnableSecretFunc(string nothing) {
+        return nothing;
     }
 
     /// <summary>
@@ -71,7 +69,7 @@ public static class Vault {
     /// <param name="path">The path to the secret</param>
     /// <returns>function() => string</returns> 
     public static Func<string> GetSecretFunc(string path) {
-        return () => Secret(path);
+        return () => Frends.HIT.Vault.Secret(path);
     }
 }
 

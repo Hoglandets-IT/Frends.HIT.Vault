@@ -1,10 +1,10 @@
 {
     "Tasks": [
       {
-        "TaskMethod": "HIT.Vault.GetSecretFunc"
+        "TaskMethod": "Frends.HIT.Vault.GetSecretFunc"
       },
       {
-        "TaskMethod": "HIT.Vault.EnableSecretFunc"
+        "TaskMethod": "Frends.HIT.Vault.EnableSecretFunc"
       }
     ]
 }
